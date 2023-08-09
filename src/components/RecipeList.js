@@ -25,6 +25,8 @@ const HomePage = () => {
       });
   }, []);
 
+  console.log(recipes);
+
   useEffect(() => {
     // Filter recipes based on search query
     if (searchQuery === '') {
@@ -53,7 +55,8 @@ const HomePage = () => {
           <div key={recipe.id} className="recipe-card">
             <img src={recipe.image} alt={recipe.title} />
             <h2>{recipe.title}</h2>
-            <p>{recipe.summary}</p>
+            
+            <div>Likes {recipe.aggregateLikes}</div>
             <Link to={`/recipe/${recipe.id}`}>View Recipe</Link>
           </div>
         ))}
